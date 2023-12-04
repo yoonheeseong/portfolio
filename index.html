@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <style type="text/css">
-        .land_name {
-            display: none;
-        }
-        .p2 {
-            font-size: 34px;
-            line-height: 45px;
-            display: block;
-            width: 100%;
-            margin: 0 auto;
-            word-break: break-all;
-        }
-    </style>
-
     <style>
         body {
             margin: 0;
-            padding: 0;
+            padding: 70px 0 0;
+            box-sizing: border-box;
         }
+        .part_title {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+        }
+
 
 /* *********************************************************************** */
         #header {
@@ -68,48 +65,59 @@
 /* *********************************************************************** */
         #landing_part {
             width: 100%;
-            height: 800px;
-            background: url(./img/landing/portfolio_list_landing_part.jpg) no-repeat 0px -300px/cover;
+            height: calc(100vh - 70px);
+
             position: relative;
         }
         .landing_part_content {
-            width: 300px;
-            position: absolute;
-            left: 52%;
-            top: 34%;
+                width: 800px;
+                height: 400px;
+                line-height: 77px;
+                position: absolute;
+                left: 50%;
+                top: 45%;
+                transform: translate(-50%, -50%);
+        }
+        .landing_hello {
+            font-size: 54px;
 
-            transform: translate(-50%, -50%);
-        }
-        .landing_part_content span {
-            line-height: 45px;
-        }
-        .land_hello {
             opacity: 0;
-            animation: land_part 0.5s 0.5s 1 forwards;
+
+            animation: opacity 1s linear forwards
         }
-        .land_position {
-            font-size: 22px;
+        .landing_position {
+            font-size: 58px;
+
             opacity: 0;
-            animation: land_part 0.5s 1s 1 forwards;
+            transform: translateX(10%);
+
+            animation: opacity 1s linear 1s forwards
         }
-        .land_name {
-            /* font-size: 25px;
-            opacity: 0;
-            animation: land_part 0.5s 1.5s 1 forwards; */
+        @keyframes opacity {
+            0% { opacity: 0;} 
+            100% { opacity: 1;}
         }
-        .land_name span {
-            color: cornflowerblue;
-            font-weight: bold;
+
+
+        .landing_word {
+            display: none;
         }
-        @keyframes land_part {
-            0% {opacity: 0;}
-            100% {opacity: 1;}
+        .display_word {
+            width: 100%;
+            line-height: 100px;
+
+            margin: 0 auto;
+
+            font-size: 90px;
+            word-break: break-all;
+
+            transform: translateX(20%);
         }
+
 
 /* *********************************************************************** */
         #skillCheck_part {
             width: 100%;
-            background: #f8f9f7;
         }
         .skill_part_content {
             width: 100%;
@@ -118,7 +126,7 @@
             height: 100%;
 
             margin: 0 auto;
-            padding: 100px 0;
+            padding: 50px 0;
             box-sizing: border-box;
 
             display: flex;
@@ -191,6 +199,7 @@
             height: 150px;
             background: url("img/skill/tomcatsvg.png") no-repeat center/cover;
         }
+
         .sp_html_content,
         .sp_css_content,
         .sp_js_content,
@@ -212,40 +221,56 @@
             height: 20px;
 
             margin: 40px 0 15px;
-            background: rgb(160, 210, 253);
+
+            box-shadow: 0 0 1px 1px #ddd;
         }
+        .sp_html_persent,
+        .sp_css_persent,
+        .sp_mysql_persent,
+        .sp_java_persent,
+        .sp_mybatis_persent,
+        .sp_spring_persent,
+        .sp_tomcat_persent,
+        .sp_js_persent,
+        .sp_jquery_persent,
+        .sp_ajax_persent {
+            height: 100%;
+
+            background: blue;
+
+            transform: scale(0, 1);
+            transform-origin: left;
+
+            /* animation: bar 2s forwards; */
+        }
+
         .sp_html_persent,
         .sp_css_persent,
         .sp_mysql_persent,
         .sp_java_persent,
         .sp_mybatis_persent {
             width: 90%;
-            height: 100%;
-
-            background: blue;
         }
         .sp_spring_persent,
         .sp_tomcat_persent {
             width: 80%;
-            height: 100%;
-
-            background: blue;
         }
         .sp_js_persent,
         .sp_jquery_persent,
         .sp_ajax_persent {
             width: 70%;
-            height: 100%;
+        }
 
-            background: blue;
+        @keyframes bar {
+            0% { transform: scale(0,1);}
+            100% { transform: scale(1,1);}
         }
 
 /* *********************************************************************** */
         #portfolio_part {
             width: 100%;
             height: 700px;
-
-            background-color: #f4f4f2;
+            padding: 50px 0 0;
         }
         .port_part_content {
             width: 100%;
@@ -255,21 +280,36 @@
             margin: 0 auto;
             padding: 50px 0;
             box-sizing: border-box;
+        }
+        .port_part_content_item1 a {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            text-decoration: none;
+            color: black;
+        }
+        .port_content_box {
+            width: 100%;
+            height: 100%;
 
             display: flex;
             gap: 20px;
         }
-        .port_img {
+        .port_img_box {
             width: 30%;
             height: 100%;
-
-            background: url("img/portfolio/dogomi.png") no-repeat center/cover;
+        }
+        .port_img {
+            width: 100%;
+            height: 500px;
         }
         .port_context {
             width: calc(70% - 20px);
-            height: 100%;
+            height: 500px;
 
-            box-shadow: 0 0 2px 3px #e4e5e2;
+            border: 2px solid #e4e5e2;
+            box-sizing: border-box;
         }
         .p_c_title {
             line-height: 140px;
@@ -312,8 +352,6 @@
         #aboutMe_part {
             width: 100%;
 
-            background-color: #e4e5e2;
-
             padding: 50px 0;
             box-sizing: border-box;
         }
@@ -328,6 +366,9 @@
             display: flex;
             justify-content: space-between;
             gap: 20px;
+
+            padding: 50px 0;
+            box-sizing: border-box;
         }
         .about_part_con_img {
             width: 30%;
@@ -357,7 +398,7 @@
             width: 100%;
             padding: 50px 0;
 
-            background-color: #dcdcdd;
+            text-align: center;
         }
         .contact_part_content {
             width: 100%;
@@ -365,7 +406,7 @@
 
             margin: 0 auto;
 
-            padding: 20px;
+            padding: 50px 0;
             box-sizing: border-box;
 
             display: flex;
@@ -415,17 +456,29 @@
         <div id="landing_part">
             
             <div class="landing_part_content">
-                <span class="land_hello">안녕하세요</span><br>
-                <span class="land_position">백엔드 개발자</span><br>
-                <span class="land_name">        윤희성입니다.</span>
-                <div class="p2"></div>
+
+                <div class="landing_hello">안녕하세요</div>
+                <div class="landing_position">백엔드 개발자</div>
+                <br>
+                <div class="landing_word">           윤희성입니다.</div>
+                <div class="display_word"></div>
+                
+
+
             </div>
 
         </div>
 
         <div id="skillCheck_part">
 
+            
+
             <div class="skill_part_content">
+
+                <div class="part_title">
+                    SKILL
+                </div>
+
                 <div class="sp_html">
                     <div class="sp_html_logo"></div>
                     <div class="sp_html_content">
@@ -437,6 +490,7 @@
                         90%
                     </div>
                 </div>
+
                 <div class="sp_css">
                     <div class="sp_css_logo"></div>
                     <div class="sp_css_content">
@@ -448,6 +502,7 @@
                         90%
                     </div>
                 </div>
+
                 <div class="sp_js">
                     <div class="sp_js_logo"></div>
                     <div class="sp_js_content">
@@ -459,6 +514,7 @@
                         70%
                     </div>
                 </div>
+
                 <div class="sp_jquery">
                     <div class="sp_jquery_logo"></div>
                     <div class="sp_jquery_content">
@@ -470,6 +526,7 @@
                         70%
                     </div>
                 </div>
+
                 <div class="sp_mysql">
                     <div class="sp_mysql_logo"></div>
                     <div class="sp_mysql_content">
@@ -481,6 +538,7 @@
                         90%
                     </div>
                 </div>
+
                 <div class="sp_java">
                     <div class="sp_java_logo"></div>
                     <div class="sp_java_content">
@@ -545,37 +603,62 @@
         </div>
 
         <div id="portfolio_part">
+
+            <div class="part_title">
+                PORTFOLIO
+            </div>
+
             <div class="port_part_content">
 
-                <div class="port_img"></div>
-                <div class="port_context">
-                    <div class="p_c_title">
-                        DOGOMI(강아지 훈련소 연결 사이트)
-                    </div>
-                    <div class="p_c_skill">
-                        <span><mark>HTML5</mark></span>
-                        <span><mark>CSS3</mark></span>
-                        <span>JS</span>
-                        <span>jQuery</span>
-                        <span>ajax</span>
-                        <span><mark>Java</mark></span>
-                        <span><mark>Spring</mark></span>
-                        <span><mark>MySQL</mark></span>
-                        <span><mark>MyBatis</mark></span>
-                        <span><mark>TomCat</mark></span>
-                    </div>
-                    <div class="p_c_txt">
-                        * 팀 프로젝트로 진행하였으며 저는 훈련소 검색의 검색기능과 이벤트, FAQ 부분을 구현하였습니다. 
-                        <br>
-                        <br>
-                        * Spring 프레임워크로 프로그래밍하여 WAS는 TomCat으로 선택 하였고, DB로는 MySQL을 선택하였습니다. mapper에서의 효율성을 위해 MyBatis를 사용하였고 Java로 코드를 작성하였습니다.
-                    </div>
+                <div class="port_part_content_item1">
+
+                    <a href="https://github.com/yoonheeseong/portfolio_dogTraining.git" target="_blank">
+                        <div class="port_content_box">
+                            <div class="port_img_box">
+                                <img src="img/portfolio/dogomi.png"  class="port_img" alt="">
+                            </div>
+                            <div class="port_context">
+                                <div class="p_c_title">
+                                    DOGOMI(강아지 훈련소 연결 사이트)
+                                </div>
+                                <div class="p_c_skill">
+                                    <span><mark>HTML5</mark></span>
+                                    <span><mark>CSS3</mark></span>
+                                    <span>JS</span>
+                                    <span>jQuery</span>
+                                    <span>ajax</span>
+                                    <span><mark>Java</mark></span>
+                                    <span><mark>Spring</mark></span>
+                                    <span><mark>MySQL</mark></span>
+                                    <span><mark>MyBatis</mark></span>
+                                    <span><mark>TomCat</mark></span>
+                                </div>
+                                <div class="p_c_txt">
+                                    * 팀 프로젝트로 진행하였으며 저는 강아지 훈련소 검색기능과 페이지, 이벤트, FAQ 파트를 맡아 구현하였습니다. 
+                                    <br>
+                                    <br>
+                                    * Spring 프레임워크를 사용하여 자바 기반으로 개발하였습니다. 
+                                    <br>
+                                    <br>
+                                    * WAS는 TomCat을 사용하였고, DB는 MySQL을 사용, mapper에서의 효율성을 위해 MyBatis를 사용하였습니다.
+                                    <!-- <br>
+                                    <br>
+                                    *  -->
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
                 </div>
 
             </div>
         </div>
 
         <div id="aboutMe_part">
+
+            <div class="part_title">
+                ABOUT ME
+            </div>
             
             <div class="about_part_content">
 
@@ -604,10 +687,15 @@
 
         <div id="contact_part">
 
+            <div class="part_title">
+                CONTACT
+            </div>
+
             <div class="contact_part_content">
 
                 <div class="email">
                     <img src="img/contact/eMail.png" alt="">
+                    <br>
                     <br>
                     e-amil
                     <br>
@@ -618,12 +706,14 @@
                     <a class="kakao_id_link" href="https://open.kakao.com/o/shpfRICf">
                         <img src="img/contact/kakaoTalk.jpg" alt="">
                         <br>
+                        <br>
                         kakao open chat
                     </a>
                 </div>
 
                 <div class="phoneCall">
                     <img src="img/contact/phoneCall.png" alt="">
+                    <br>
                     <br>
                     phone
                     <br>
@@ -637,24 +727,51 @@
     </div>
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript">
-        function changeText(cont1,cont2,speed){
-            var Otext=cont1.text();
-            var Ocontent=Otext.split("");
-            var i=0;
-            function show(){
-                if(i<Ocontent.length)
-                {		
-                    cont2.append(Ocontent[i]);
-                    i=i+1;
-                };
-            };
+
+    <script>
+        $(document).ready(function() { 
+
+            $('#header div a').click(function(){
+                event.preventDefault(); 
+                let href = $(this).attr('href');
+
+                $('html, body').animate({
+                    scrollTop: $(href).offset().top - 70
+                }, 700)
+
+            })
+
+            $(window).scroll(function(){
+                if($('#landing_part').offset().top <= $(window).scrollTop()) {
+                    $('.persent_bar *').css({
+                        animation: 'bar 2s forwards'
+                    })
+                }
+            })
+
+
+            function changeText(cont1,cont2,speed){
+                var Otext=cont1.text();
+                var Ocontent=Otext.split("");
+                var i=0;
+                function show(){
+                    if(i<Ocontent.length)
+                        {		
+                            cont2.append(Ocontent[i]);
+                            i=i+1;
+                        };
+                    };
                 var Otimer=setInterval(show,speed);	
-        };
-        $(document).ready(function(){
-            changeText($(".land_name"),$(".p2"),200);
-            clearInterval(Otimer);
+            };
+
+            $(document).ready(function(){
+                changeText($(".landing_word"),$(".display_word"),200);
+                clearInterval(Otimer);
+            });
+
         });
+
     </script>
+
 </body>
 </html>
