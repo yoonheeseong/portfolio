@@ -4,433 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 70px 0 0;
-            box-sizing: border-box;
-        }
-        .part_title {
-            width: 100%;
-            height: 50px;
-            line-height: 50px;
-
-            font-size: 40px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-
-/* *********************************************************************** */
-        #header {
-            width: 100%;
-            height: 70px;
-            line-height: 70px;
-
-            background: rgba(255, 255, 255, 1);
-
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 10;
-
-            display: flex;
-            justify-content: end;
-
-            border-bottom: 1px solid #ddd;
-        }
-        #header div:hover {
-            background: rgb(180, 175, 175);
-        }
-        #header a {
-            display: block;
-            width: 100%;
-            height: 100%;
-
-            text-decoration: none;
-            color: black;
-
-            font-size: 24px;
-            padding: 0 40px;
-            box-sizing: border-box;
-
-            border-left: 1px solid #ddd;
-            border-right: 1px solid #ddd;
-        }
-        #header div:hover a {
-            color: aliceblue;
-        }
-
-/* *********************************************************************** */
-        #landing_part {
-            width: 100%;
-            height: calc(100vh - 70px);
-
-            position: relative;
-        }
-        .landing_part_content {
-                width: 800px;
-                height: 400px;
-                line-height: 77px;
-                position: absolute;
-                left: 50%;
-                top: 45%;
-                transform: translate(-50%, -50%);
-        }
-        .landing_hello {
-            font-size: 54px;
-
-            opacity: 0;
-
-            animation: opacity 1s linear forwards
-        }
-        .landing_position {
-            font-size: 58px;
-
-            opacity: 0;
-            transform: translateX(10%);
-
-            animation: opacity 1s linear 1s forwards
-        }
-        @keyframes opacity {
-            0% { opacity: 0;} 
-            100% { opacity: 1;}
-        }
-
-
-        .landing_word {
-            display: none;
-        }
-        .display_word {
-            width: 100%;
-            line-height: 100px;
-
-            margin: 0 auto;
-
-            font-size: 90px;
-            word-break: break-all;
-
-            transform: translateX(20%);
-        }
-
-
-/* *********************************************************************** */
-        #skillCheck_part {
-            width: 100%;
-        }
-        .skill_part_content {
-            width: 100%;
-            max-width: 1200px;
-
-            height: 100%;
-
-            margin: 0 auto;
-            padding: 50px 0;
-            box-sizing: border-box;
-
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 50px;
-        }
-        .sp_html,
-        .sp_css,
-        .sp_js,
-        .sp_jquery,
-        .sp_mysql,
-        .sp_java,
-        .sp_spring,
-        .sp_ajax,
-        .sp_mybatis,
-        .sp_tomcat {
-            width: calc(50% - 25px);
-
-            display: flex;
-            justify-content: space-between;
-        }
-        .sp_html_logo {
-            width: 150px;
-            height: 150px;
-            background: url("img/skill/html5.png") no-repeat center/cover;
-        }
-        .sp_css_logo {
-            width: 150px;
-            height: 150px;
-            background: url("img/skill/css3.png") no-repeat center/cover;
-        }
-        .sp_js_logo {
-            width: 150px;
-            height: 150px;
-            background: url("img/skill/js.png") no-repeat center/cover;
-        }
-        .sp_jquery_logo {
-            width: 260px;
-            height: 150px;
-            background: url("img/skill/jquery.png") no-repeat center/cover;
-        }
-        .sp_mysql_logo {
-            width: 290px;
-            height: 150px;
-            background: url("img/skill/Mysql.png") no-repeat center/cover;
-        }
-        .sp_java_logo {
-            width: 150px;
-            height: 150px;
-            background: url("img/skill/Java.png") no-repeat center/cover;
-        }
-        .sp_spring_logo {
-            width: 235px;
-            height: 168px;
-            background: url("img/skill/spring.png") no-repeat center/cover;
-        }
-        .sp_ajax_logo {
-            width: 300px;
-            height: 150px;
-            background: url("img/skill/PPT4_3.png") no-repeat center/cover;
-        }
-        .sp_mybatis_logo {
-            width: 150px;
-            height: 150px;
-            background: url("img/skill/mybatis.png") no-repeat center/cover;
-        }
-        .sp_tomcat_logo {
-            width: 208px;
-            height: 150px;
-            background: url("img/skill/tomcatsvg.png") no-repeat center/cover;
-        }
-
-        .sp_html_content,
-        .sp_css_content,
-        .sp_js_content,
-        .sp_jquery_content,
-        .sp_mysql_content,
-        .sp_java_content,
-        .sp_spring_content,
-        .sp_ajax_content,
-        .sp_mybatis_content,
-        .sp_tomcat_content {
-            width: 40%;
-            height: 100%;
-
-            text-align: center;
-            font-weight: bold;
-        }
-        .persent_bar {
-            width: 100%;
-            height: 20px;
-
-            margin: 40px 0 15px;
-
-            box-shadow: 0 0 1px 1px #ddd;
-        }
-        .sp_html_persent,
-        .sp_css_persent,
-        .sp_mysql_persent,
-        .sp_java_persent,
-        .sp_mybatis_persent,
-        .sp_spring_persent,
-        .sp_tomcat_persent,
-        .sp_js_persent,
-        .sp_jquery_persent,
-        .sp_ajax_persent {
-            height: 100%;
-
-            background: blue;
-
-            transform: scale(0, 1);
-            transform-origin: left;
-
-            /* animation: bar 2s forwards; */
-        }
-
-        .sp_html_persent,
-        .sp_css_persent,
-        .sp_mysql_persent,
-        .sp_java_persent,
-        .sp_mybatis_persent {
-            width: 90%;
-        }
-        .sp_spring_persent,
-        .sp_tomcat_persent {
-            width: 80%;
-        }
-        .sp_js_persent,
-        .sp_jquery_persent,
-        .sp_ajax_persent {
-            width: 70%;
-        }
-
-        @keyframes bar {
-            0% { transform: scale(0,1);}
-            100% { transform: scale(1,1);}
-        }
-
-/* *********************************************************************** */
-        #portfolio_part {
-            width: 100%;
-            height: 700px;
-            padding: 50px 0 0;
-        }
-        .port_part_content {
-            width: 100%;
-            max-width: 1200px;
-            height: 100%;
-
-            margin: 0 auto;
-            padding: 50px 0;
-            box-sizing: border-box;
-        }
-        .port_part_content_item1 a {
-            display: block;
-            width: 100%;
-            height: 100%;
-
-            text-decoration: none;
-            color: black;
-        }
-        .port_content_box {
-            width: 100%;
-            height: 100%;
-
-            display: flex;
-            gap: 20px;
-        }
-        .port_img_box {
-            width: 30%;
-            height: 100%;
-        }
-        .port_img {
-            width: 100%;
-            height: 500px;
-        }
-        .port_context {
-            width: calc(70% - 20px);
-            height: 500px;
-
-            border: 2px solid #e4e5e2;
-            box-sizing: border-box;
-        }
-        .p_c_title {
-            line-height: 140px;
-            padding: 0 10px;
-            box-sizing: border-box;
-
-            text-align: center;
-            font-weight: bold;
-            font-size: 26px;
-            color: blue;
-        }
-        .p_c_skill {
-            width: 100%;
-
-            text-align: center;
-            font-weight: bold;
-
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .p_c_skill span {
-            padding: 5px 8px;
-        }
-        .p_c_txt {
-            width: 100%;
-
-            padding: 50px 20px;
-            box-sizing: border-box;
-
-        }
-
-        .about_wrap {
-            box-shadow: 0 0 2px 3px #cdcdcd;
-            padding: 30px 20px;
-        }
-
-/* *********************************************************************** */
-        #aboutMe_part {
-            width: 100%;
-
-            padding: 50px 0;
-            box-sizing: border-box;
-        }
-        .about_part_content {
-            width: 100%;
-            max-width: 1200px;
-
-            height: 100%;
-
-            margin: 0 auto;
-            
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-
-            padding: 50px 0;
-            box-sizing: border-box;
-        }
-        .about_part_con_img {
-            width: 30%;
-            height: 383px;
-
-            background: url("img/aboutme/man.png") no-repeat center/cover;
-        }
-        .about_part_con_title {
-            width: calc(70% - 20px);
-            line-height: 40px;
-
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .about_part_con_txt {
-            padding: 30px 0px;
-            box-sizing: border-box;
-
-            font-size: 20px;
-        }
-
-
-
-
-/* *********************************************************************** */
-        #contact_part {
-            width: 100%;
-            padding: 50px 0;
-
-            text-align: center;
-        }
-        .contact_part_content {
-            width: 100%;
-            max-width: 1200px;
-
-            margin: 0 auto;
-
-            padding: 50px 0;
-            box-sizing: border-box;
-
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-        .kakao_id_link {
-            text-decoration: none;
-            color: black;
-        }
-        .kakao a {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-        .email img,
-        .kakao img,
-        .phoneCall img {
-            width: 150px;
-            height: 150px;
-        }
-
-        
-    </style>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <div id="wrap">
@@ -480,7 +54,9 @@
                 </div>
 
                 <div class="sp_html">
-                    <div class="sp_html_logo"></div>
+                    <div class="sp_logo">
+                        <img src="img/skill/html5.png" alt="">
+                    </div>
                     <div class="sp_html_content">
                         HTML5
                         <br>
@@ -492,7 +68,9 @@
                 </div>
 
                 <div class="sp_css">
-                    <div class="sp_css_logo"></div>
+                    <div class="sp_logo">
+                        <img src="img/skill/css3.png" alt="">
+                    </div>
                     <div class="sp_css_content">
                         CSS3
                         <br>
@@ -504,7 +82,9 @@
                 </div>
 
                 <div class="sp_js">
-                    <div class="sp_js_logo"></div>
+                    <div class="sp_logo">
+                        <img src="img/skill/javascript-1.svg" alt="">
+                    </div>
                     <div class="sp_js_content">
                         JavaScript
                         <br>
@@ -516,7 +96,9 @@
                 </div>
 
                 <div class="sp_jquery">
-                    <div class="sp_jquery_logo"></div>
+                    <div class="sp_logo">
+                        <img src="img/skill/jquery.png" alt="">
+                    </div>
                     <div class="sp_jquery_content">
                         jQuery
                         <br>
@@ -528,7 +110,9 @@
                 </div>
 
                 <div class="sp_mysql">
-                    <div class="sp_mysql_logo"></div>
+                    <div class="sp_logo">
+                        <img src="img/skill/Mysql.png" alt="">
+                    </div>
                     <div class="sp_mysql_content">
                         MySQL
                         <br>
@@ -540,7 +124,9 @@
                 </div>
 
                 <div class="sp_java">
-                    <div class="sp_java_logo"></div>
+                    <div class="sp_logo">
+                        <img src="img/skill/Java.png" alt="">
+                    </div>
                     <div class="sp_java_content">
                         Java
                         <br>
@@ -552,7 +138,9 @@
                 </div>
 
                 <div class="sp_spring">
-                    <div class="sp_spring_logo"></div>
+                    <div class="sp_logo">
+                        <img src="img/skill/spring.png" alt="">
+                    </div>
                     <div class="sp_spring_content">
                         Spring
                         <br>
@@ -564,7 +152,9 @@
                 </div>
 
                 <div class="sp_ajax">
-                    <div class="sp_ajax_logo"></div>
+                    <div class="sp_logo">
+                        <img src="img/skill/PPT4_3.png" alt="">
+                    </div>
                     <div class="sp_ajax_content">
                         aJax
                         <br>
@@ -576,7 +166,9 @@
                 </div>
                 
                 <div class="sp_mybatis">
-                    <div class="sp_mybatis_logo"></div>
+                    <div class="sp_logo">
+                        <img src="img/skill/mybatis.png" alt="">
+                    </div>
                     <div class="sp_mybatis_content">
                         MyBatis
                         <br>
@@ -588,7 +180,9 @@
                 </div>
 
                 <div class="sp_tomcat">
-                    <div class="sp_tomcat_logo"></div>
+                    <div class="sp_logo">
+                        <img src="img/skill/tomcatsvg.png" alt="">
+                    </div>
                     <div class="sp_tomcat_content">
                         TomCat
                         <br>
@@ -622,16 +216,16 @@
                                     DOGOMI(강아지 훈련소 연결 사이트)
                                 </div>
                                 <div class="p_c_skill">
-                                    <span><mark>HTML5</mark></span>
-                                    <span><mark>CSS3</mark></span>
+                                    <span class="txt_color_bold">HTML5</span>
+                                    <span class="txt_color_bold">CSS3</span>
                                     <span>JS</span>
                                     <span>jQuery</span>
                                     <span>ajax</span>
-                                    <span><mark>Java</mark></span>
-                                    <span><mark>Spring</mark></span>
-                                    <span><mark>MySQL</mark></span>
-                                    <span><mark>MyBatis</mark></span>
-                                    <span><mark>TomCat</mark></span>
+                                    <span class="txt_color_bold">Java</span>
+                                    <span class="txt_color_bold">Spring</span>
+                                    <span class="txt_color_bold">MySQL</span>
+                                    <span class="txt_color_bold">MyBatis</span>
+                                    <span class="txt_color_bold">TomCat</span>
                                 </div>
                                 <div class="p_c_txt">
                                     * 팀 프로젝트로 진행하였으며 저는 강아지 훈련소 검색기능과 페이지, 이벤트, FAQ 파트를 맡아 구현하였습니다. 
@@ -742,12 +336,19 @@
             })
 
             $(window).scroll(function(){
+
                 if($('#landing_part').offset().top <= $(window).scrollTop()) {
                     $('.persent_bar *').css({
                         animation: 'bar 2s forwards'
                     })
                 }
+
             })
+            if($('#landing_part').offset().top <= $(window).scrollTop()) {
+                    $('.persent_bar *').css({
+                        animation: 'bar 2s forwards'
+                    })
+                }
 
 
             function changeText(cont1,cont2,speed){
