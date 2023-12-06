@@ -308,11 +308,13 @@ body {
     justify-content: space-between;
     gap: 10px;
 }
-.kakao_id_link {
+.kakao_id_link,
+.email a {
     text-decoration: none;
     color: black;
 }
-.kakao a {
+.kakao a,
+.email a {
     display: block;
     width: 100%;
     height: 100%;
